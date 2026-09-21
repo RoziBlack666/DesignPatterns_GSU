@@ -6,10 +6,4 @@
 
 Фабрика внутри себя создаёт конкретные объекты, но наружу возвращает их как Shape
 То есть структура работы для фабрики получается такой:
-       Shape
-      /  |  \
-     /   |   \
-Circle Square Triangle
-     \   |   /
-      \  |  /
-    ShapeFactory
+<img width="166" height="154" alt="изображение" src="https://github.com/user-attachments/assets/e666c7c5-36e3-49d2-8f32-12803958a902" />
