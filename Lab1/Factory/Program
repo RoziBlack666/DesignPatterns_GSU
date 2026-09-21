@@ -1,0 +1,29 @@
+namespace ShapeFactory
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Фабрика возвращает общий интерфейс Shape
+            Shape circle = ShapeFactory.CreateShape("circle");
+            Shape square = ShapeFactory.CreateShape("square");
+            Shape triangle = ShapeFactory.CreateShape("triangle");
+
+            // Работа с объектами через общий интерфейс
+            circle.Draw();
+            Console.WriteLine($"Площадь: {circle.GetArea():F2}");
+
+            Console.WriteLine();
+
+            square.Draw();
+            Console.WriteLine($"Площадь: {square.GetArea():F2}");
+
+            Console.WriteLine();
+
+            triangle.Draw();
+            Console.WriteLine($"Площадь: {triangle.GetArea():F2}");
+
+            Console.ReadKey();
+        }
+    }
+}
