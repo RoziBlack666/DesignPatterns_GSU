@@ -1,0 +1,92 @@
+namespace ShapeFactory
+{
+    public interface Shape
+    {
+        void Draw();
+        double GetArea();
+    }
+
+    
+    public class Circle : Shape
+    {
+        private double radius;
+
+        public Circle(double radius)
+        {
+            this.radius = radius;
+        }
+
+        public void Draw()
+        {
+            Console.WriteLine("Создан круг.");
+        }
+        public double GetArea()
+        {
+            return Math.PI * radius * radius;
+        }
+    }
+
+    public class Square : Shape
+    {
+        private double side;
+
+        public Square(double side)
+        {
+            this.side = side;
+        }
+
+        public void Draw()
+        {
+            Console.WriteLine("Создан квадрат.");
+        }
+        public double GetArea()
+        {
+            return side * side;
+        }
+    }
+
+    public class Triangle : Shape
+    {
+        private double @base;
+        private double height;
+
+        public Triangle(double @base, double height)
+        {
+            this.@base = @base;
+            this.height = height;
+        }
+
+        public void Draw()
+        {
+            Console.WriteLine("Создан треугольник.");
+        }
+        public double GetArea()
+        {
+            return 0.5 * @base * height;
+        }
+    }
+
+
+    public static class ShapeFactory
+    {
+        public static Shape CreateShape(string type)
+        {
+            switch (type.ToLower())
+            {
+                case "circle":
+                    return new Circle(5);
+
+                case "square":
+                    return new Square(4);
+
+                case "triangle":
+                    return new Triangle(6, 4);
+
+                default:
+                    throw new ArgumentException(
+                        "Неизвестный тип фигуры."
+                    );
+            }
+        }
+    }
+}
